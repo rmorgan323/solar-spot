@@ -17,4 +17,14 @@ export class HomeComponent implements OnInit {
     this.router.navigate([`state/${state}`]);
   }
 
+  stateDisplay(state) {
+    document.querySelector(`.t-${state}`).style.opacity = "1";
+    document.getElementById(state).style.fill = "#adeeff";
+  }
+
+  stateRemoveDisplay(state) {
+    document.querySelector(`.t-${state}`).style.opacity = "0";
+    document.getElementById(state).style.fill = "#d3d3d3";
+  }
+
 }
