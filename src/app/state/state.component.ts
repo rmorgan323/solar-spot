@@ -40,18 +40,22 @@ export class StateComponent implements OnInit {
   }
 
   basicChart() {
-    let coordsObj = {
+    const element = this.el.nativeElement;
+    const data = [{
       x: this.data.map(year => year[0]).reverse();
       y: this.data.map(year => year[1]).reverse();
+    }];
+    const layout = {
+      title: this.title,
+      yaxis: {
+        title: this.units
+      }
     };
-
-    const element = this.el.nativeElement;
-    const data = [coordsObj];
     const style = {
       margin: { t: 0 }
-    }
+    };
 
-    Plotly.plot(element, data, style)
+    Plotly.plot(element, data, layout, style)
   }
 
 }
