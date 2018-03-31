@@ -6,8 +6,8 @@ svg {
 
 path, circle {
   cursor: pointer;
-  fill: #d3d3d3;
-  stroke: #e4e4e4;
+  fill: #b6dcae;
+  stroke: #d3e9ce;
   stroke-width: 1.5;
   transition: fill .3s ease-in-out;
 }
@@ -18,7 +18,7 @@ circle {
 }
 
 path:hover, circle:hover {
-  fill: #adeeff;
+  fill: #d3e9ce;
 }
 
 text {
@@ -26,7 +26,7 @@ text {
   font-size: 12px;
   cursor: pointer;
   opacity: 0;
-  fill: #888;
+  fill: #6fa364;
   transition: opacity .3s ease-in-out;
 }
 
