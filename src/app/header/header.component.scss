@@ -1,0 +1,13 @@
+.header-component {
+  background: linear-gradient(to right, rgba(222,147,0,1) 0%,rgba(255,202,63,1) 100%);
+  /*background: linear-gradient(to right, rgba(255,202,63,1) 0%,rgba(255,233,178,1) 100%);*/
+  margin: 0;
+  padding: 0;
+
+  h1 {
+    margin: 0;
+    padding: 14px 20px;
+    color: #fff;
+    opacity: .8;
+  }
+}

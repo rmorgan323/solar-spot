@@ -19,12 +19,12 @@ export class HomeComponent implements OnInit {
 
   stateDisplay(state) {
     document.querySelector(`.t-${state}`).style.opacity = "1";
-    document.getElementById(state).style.fill = "#adeeff";
+    document.getElementById(state).style.fill = "#d3e9ce";
   }
 
   stateRemoveDisplay(state) {
     document.querySelector(`.t-${state}`).style.opacity = "0";
-    document.getElementById(state).style.fill = "#d3d3d3";
+    document.getElementById(state).style.fill = "#b6dcae";
   }
 
 }
