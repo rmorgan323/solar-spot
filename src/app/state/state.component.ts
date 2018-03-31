@@ -10,7 +10,8 @@ import * as Plotly from 'plotly.js';
 })
 export class StateComponent implements OnInit {
 
-  @ViewChild('chart') el: ElementRef;
+  @ViewChild('simplechart') el: ElementRef;
+  @ViewChild('comparisonchart') el2: ElementRef;
 
   state: string = this.route.params._value.abbr;
   title: string;
@@ -24,6 +25,7 @@ export class StateComponent implements OnInit {
   async ngOnInit() {
     await this.getStateData();
     await this.basicChart();
+    await this.comparisonChart();
   }
 
   async getStateData() {
@@ -41,6 +43,25 @@ export class StateComponent implements OnInit {
 
   basicChart() {
     const element = this.el.nativeElement;
+    const data = [{
+      x: this.data.map(year => year[0]).reverse();
+      y: this.data.map(year => year[1]).reverse();
+    }];
+    const layout = {
+      title: this.title,
+      yaxis: {
+        title: this.units
+      }
+    };
+    const style = {
+      margin: { t: 0 }
+    };
+
+    Plotly.plot(element, data, layout, style)
+  }
+
+  comparisonChart() {
+    const element = this.el2.nativeElement;
     const data = [{
       x: this.data.map(year => year[0]).reverse();
       y: this.data.map(year => year[1]).reverse();
