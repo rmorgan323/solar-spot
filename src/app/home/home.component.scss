@@ -1,8 +1,26 @@
-path {
+path, circle {
   cursor: pointer;
+  fill: #d3d3d3;
   transition: fill .3s ease-in-out;
+  stroke: #e4e4e4;
+  stroke-width: 1.5;
 }
 
-path:hover {
-  fill: #b3b3b3;
+circle {
+  stroke-width: 2.5;
+  fill: #ed9fa2;
 }
+
+path:hover, circle:hover {
+  fill: #adeeff;
+}
+
+text {
+  cursor: pointer;
+  opacity: 0;
+  font-family: "Arial", sans-serif;
+  fill: #888;
+  transition: opacity .3s ease-in-out;
+}
+
+
