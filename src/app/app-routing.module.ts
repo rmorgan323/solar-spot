@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'state/:abbr'
-    component: AboutComponent
+    component: StateComponent
   }
 ];
 
