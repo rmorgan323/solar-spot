@@ -7,8 +7,8 @@ svg {
 path, circle {
   cursor: pointer;
   fill: #b6dcae;
-  stroke: #d3e9ce;
-  stroke-width: 1.5;
+  stroke: #fff;
+  stroke-width: 1;
   transition: fill .3s ease-in-out;
 }
 
@@ -26,8 +26,12 @@ text {
   font-size: 12px;
   cursor: pointer;
   opacity: 0;
-  fill: #6fa364;
+  fill: #8a5300;
   transition: opacity .3s ease-in-out;
+}
+
+.someClass {
+  fill: red;
 }
 
 

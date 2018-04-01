@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { colors, stateData } from './home.component.data.ts';
 
 @Component({
   selector: 'app-home',
@@ -19,12 +20,20 @@ export class HomeComponent implements OnInit {
 
   stateDisplay(state) {
     document.querySelector(`.t-${state}`).style.opacity = "1";
-    document.getElementById(state).style.fill = "#d3e9ce";
+    document.getElementById(state).style.fill = "#ffca3f";
   }
 
   stateRemoveDisplay(state) {
     document.querySelector(`.t-${state}`).style.opacity = "0";
-    document.getElementById(state).style.fill = "#b6dcae";
+    document.getElementById(state).style.fill = this.getStateFill(state);
+  }
+
+  getStateFill(state) {
+    for (let i = 0; i < colors.length; i++) {
+      if (stateData[state] <= colors[i].range) {
+        return colors[i].hex;
+      }
+    }    
   }
 
 }
