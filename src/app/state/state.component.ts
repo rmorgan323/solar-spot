@@ -11,7 +11,6 @@ import * as Plotly from 'plotly.js';
 export class StateComponent implements OnInit {
 
   @ViewChild('simplechart') el: ElementRef;
-  // @ViewChild('comparisonchart') el2: ElementRef;
 
   state: string = this.route.params._value.abbr;
   name: string;
@@ -26,9 +25,8 @@ export class StateComponent implements OnInit {
   async ngOnInit() {
     await this.getRenewableData();
     await this.getTotalData();
-    await this.get
-    await this.basicChart();
-    await this.comparisonChart();
+    await this.renewableChart();
+    await this.traditionalChart();
   }
 
 
@@ -55,14 +53,14 @@ export class StateComponent implements OnInit {
     this.totalData = rawTotalData.series[0].data;
   }
 
-  basicChart() {
+  renewableChart() {
     const element = this.el.nativeElement;
     const data = [{
       x: this.renewableData.map(year => year[0]).reverse(),
       y: this.renewableData.map(year => year[1]).reverse(),
       type: 'bar',
       name: 'Renewable',
-      marker: { color: '#b6dcae' }
+      marker: { color: '#6ea363' }
     }];
     const layout = {
       barmode: 'stack',
@@ -78,7 +76,7 @@ export class StateComponent implements OnInit {
     Plotly.plot(element, data, layout, style);
   }
 
-  comparisonChart() {
+  traditionalChart() {
     const xAxis = this.totalData.map(year => year[0]).reverse();
     const yAxis = this.totalData.map(year => year[1]).reverse();
     const renew = this.renewableData.map(year => year[1]).reverse();
