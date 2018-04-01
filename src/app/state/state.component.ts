@@ -11,11 +11,12 @@ import * as Plotly from 'plotly.js';
 export class StateComponent implements OnInit {
 
   @ViewChild('simplechart') el: ElementRef;
-  @ViewChild('comparisonchart') el2: ElementRef;
+  // @ViewChild('comparisonchart') el2: ElementRef;
 
   state: string = this.route.params._value.abbr;
-  title: string;
-  data: array;
+  name: string;
+  totalData: array;
+  renewableData: array;
   units: string;
   source: string;
 
@@ -23,32 +24,49 @@ export class StateComponent implements OnInit {
   }
 
   async ngOnInit() {
-    await this.getStateData();
+    await this.getRenewableData();
+    await this.getTotalData();
+    await this.get
     await this.basicChart();
     await this.comparisonChart();
   }
 
-  async getStateData() {
-    const response = await fetch(`http://api.eia.gov/series/?api_key=${apiKey}&series_id=SEDS.REPRB.${this.state}.A`)
-    const rawStateData = await response.json();
-    this.cleanStateData(rawStateData);
+
+  async getRenewableData() {
+    const response = await fetch(`http://api.eia.gov/series/?api_key=${apiKey}&series_id=SEDS.REPRB.${this.state}.A`);
+    const rawRenewableData = await response.json();
+    this.cleanRenewableData(rawRenewableData);
   }
 
-  cleanStateData(rawStateData) {
-    this.title = rawStateData.series[0].name;
-    this.data = rawStateData.series[0].data;
-    this.units = rawStateData.series[0].units;
-    this.source = rawStateData.series[0].source;
+  async getTotalData() {
+    const response = await fetch(`http://api.eia.gov/series/?api_key=${apiKey}&series_id=SEDS.TEPRB.${this.state}.A`);
+    const rawTotalData = await response.json();
+    this.cleanTotalData(rawTotalData);
+  }
+
+  cleanRenewableData(rawRenewableData) {
+    this.name = rawRenewableData.series[0].name.split(', ')[1]
+    this.renewableData = rawRenewableData.series[0].data;
+    this.units = rawRenewableData.series[0].units;
+    this.source = rawRenewableData.series[0].source;
+  }
+
+  cleanTotalData(rawTotalData) {
+    this.totalData = rawTotalData.series[0].data;
   }
 
   basicChart() {
     const element = this.el.nativeElement;
     const data = [{
-      x: this.data.map(year => year[0]).reverse();
-      y: this.data.map(year => year[1]).reverse();
+      x: this.renewableData.map(year => year[0]).reverse(),
+      y: this.renewableData.map(year => year[1]).reverse(),
+      type: 'bar',
+      name: 'Renewable',
+      marker: { color: '#b6dcae' }
     }];
     const layout = {
-      title: this.title,
+      barmode: 'stack',
+      title: `Renewable Energy Production vs. Traditional Energy Sources - ${this.name}`
       yaxis: {
         title: this.units
       }
@@ -57,26 +75,23 @@ export class StateComponent implements OnInit {
       margin: { t: 0 }
     };
 
-    Plotly.plot(element, data, layout, style)
+    Plotly.plot(element, data, layout, style);
   }
 
   comparisonChart() {
-    const element = this.el2.nativeElement;
+    const xAxis = this.totalData.map(year => year[0]).reverse();
+    const yAxis = this.totalData.map(year => year[1]).reverse();
+    const renew = this.renewableData.map(year => year[1]).reverse();
+    const element = this.el.nativeElement;
     const data = [{
-      x: this.data.map(year => year[0]).reverse();
-      y: this.data.map(year => year[1]).reverse();
+      x: xAxis,
+      y: yAxis.map((year, index) => year - renew[index]),
+      type: 'bar',
+      name: 'Traditional',
+      marker: { color: '#ffca3f' }
     }];
-    const layout = {
-      title: this.title,
-      yaxis: {
-        title: this.units
-      }
-    };
-    const style = {
-      margin: { t: 0 }
-    };
 
-    Plotly.plot(element, data, layout, style)
+    Plotly.plot(element, data);
   }
 
 }
