@@ -1,27 +1,9 @@
 # SolarSpot
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.3.
+SolarSpot was created using Angular 5 in an effort to learn the basics of Angular as well as building SVGs on the fly.  Individual state pages are built with Plotly charts.  It pulls data from the U.S. Energy Information Administration API (https://www.eia.gov/) relating to alternative energy production in U.S. states.
 
-## Development server
+Angular 5 is pretty cool--works in many ways like React but with a few niceties like a CLI which generates many of the files needed for building components.  I like Angular's opinionated file structure as well.  It's easy to follow.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To build the clickable state map, I simply dropped the guts from a wikipedia svg map of the United States into an HTML file, added methods on the states for determining colors, and used some of Angular's input events to make them clickable/hoverable.  It was surprisingly easy to do.
 
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+![screenshot](solarspot-ss.png)
