@@ -9,7 +9,7 @@ const routes: Routes = [
     component: HomeComponent
   },
   {
-    path: 'state/:abbr'
+    path: 'state/:abbr',
     component: StateComponent
   }
 ];

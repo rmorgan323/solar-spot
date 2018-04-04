@@ -64,7 +64,7 @@ export class StateComponent implements OnInit {
     }];
     const layout = {
       barmode: 'stack',
-      title: `Renewable Energy Production vs. Traditional Energy Sources - ${this.name}`
+      title: `Renewable Energy Production vs. Traditional Energy Sources - ${this.name}`,
       yaxis: {
         title: this.units
       }
