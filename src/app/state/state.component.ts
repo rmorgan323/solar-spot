@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import apiKey from '../../apiKey';
 import * as Plotly from 'plotly.js';
+import stateData from '../home/home.component.data';
 
 @Component({
   selector: 'app-state',
@@ -19,6 +20,8 @@ export class StateComponent implements OnInit {
   renewableData: array;
   units: string;
   source: string;
+  rankRaw: number;
+  renewablePercent: string;
 
   constructor(private route: ActivatedRoute) { 
   }
@@ -29,7 +32,6 @@ export class StateComponent implements OnInit {
     await this.renewableChart();
     await this.traditionalChart();
   }
-
 
   async getRenewableData() {
     const response = await fetch(`http://api.eia.gov/series/?api_key=${apiKey}&series_id=SEDS.REPRB.${this.state}.A`);
@@ -49,6 +51,13 @@ export class StateComponent implements OnInit {
     this.renewableData = rawRenewableData.series[0].data;
     this.units = rawRenewableData.series[0].units;
     this.source = rawRenewableData.series[0].source;
+    this.rankRaw = stateData.stateData[this.state].rankRaw;
+    this.renewablePercent = this.getRenewablePercent(this.state);
+    console.log(this.renewablePercent)
+  }
+
+  getRenewablePercent(state) {
+    return ((stateData.stateData[state].currentRenewable / stateData.stateData[state].currentTotal) * 100).toFixed(2).toString() + '%';
   }
 
   cleanTotalData(rawTotalData) {
