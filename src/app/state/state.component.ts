@@ -14,6 +14,7 @@ export class StateComponent implements OnInit {
 
   state: string = this.route.params._value.abbr;
   name: string;
+  nameForFile: string;
   totalData: array;
   renewableData: array;
   units: string;
@@ -43,7 +44,8 @@ export class StateComponent implements OnInit {
   }
 
   cleanRenewableData(rawRenewableData) {
-    this.name = rawRenewableData.series[0].name.split(', ')[1]
+    this.name = rawRenewableData.series[0].name.split(', ')[1];
+    this.nameForFile = this.name.replace(/\s+/g, '_');
     this.renewableData = rawRenewableData.series[0].data;
     this.units = rawRenewableData.series[0].units;
     this.source = rawRenewableData.series[0].source;
