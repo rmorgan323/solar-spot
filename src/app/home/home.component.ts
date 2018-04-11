@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { colors, stateData } from './home.component.data.ts';
+import { colors, stateData } from './home.component.data';
 
 @Component({
   selector: 'app-home',
