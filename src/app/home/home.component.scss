@@ -1,7 +1,7 @@
 svg {
-  width: 959px;
+  max-width: 959px;
   display: block;
-  margin: auto;
+  margin: 34px auto;
 }
 
 path, circle {
@@ -30,8 +30,26 @@ text {
   transition: opacity .3s ease-in-out;
 }
 
+.key-text {
+  opacity: 1;
+  font-weight: 500;
+  font-size: 14px;
+  fill: #fff;
+}
+
+.title-text {
+  opacity: 1;
+  font-weight: 500;
+  font-size: 22px;
+  fill: #2f5c2d;
+}
+
 .someClass {
   fill: red;
 }
 
-
+@media screen and (max-width: 959px) {
+  svg {
+    width: 100%;
+  }
+}
