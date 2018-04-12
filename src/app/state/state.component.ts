@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import apiKey from '../../apiKey';
 import * as Plotly from 'plotly.js';
+import stateData from '../home/home.component.data';
 
 @Component({
   selector: 'app-state',
@@ -19,6 +20,9 @@ export class StateComponent implements OnInit {
   renewableData: array;
   units: string;
   source: string;
+  rankRaw: number;
+  renewablePercent: string;
+  percentageRank: string;
 
   constructor(private route: ActivatedRoute) { 
   }
@@ -29,7 +33,6 @@ export class StateComponent implements OnInit {
     await this.renewableChart();
     await this.traditionalChart();
   }
-
 
   async getRenewableData() {
     const response = await fetch(`http://api.eia.gov/series/?api_key=${apiKey}&series_id=SEDS.REPRB.${this.state}.A`);
@@ -49,6 +52,30 @@ export class StateComponent implements OnInit {
     this.renewableData = rawRenewableData.series[0].data;
     this.units = rawRenewableData.series[0].units;
     this.source = rawRenewableData.series[0].source;
+    this.rankRaw = stateData.stateData[this.state].rankRaw;
+    const percent = this.getRenewablePercent(this.state);
+    this.renewablePercent = percent.toFixed(2);
+    this.percentageRank = this.getPercentageRank(this.state);
+  }
+
+  getRenewablePercent(state) {
+    return (stateData.stateData[state].currentRenewable / stateData.stateData[state].currentTotal) * 100;
+  }
+
+  getPercentageRank(state) {
+    let percentages = Object.keys(stateData.stateData).reduce((array, key) => {
+      array.push({
+        state: key,
+        renewablePercent: this.getRenewablePercent(key)
+      })
+      return array;
+    }, []);
+    percentages = percentages.sort((a, b) => {
+      return b.renewablePercent - a.renewablePercent;
+    })
+    const rank = percentages.findIndex(abbr => abbr.state === state);
+      
+    return percentages[rank].renewablePercent === 100 ? 1 : rank + 1;
   }
 
   cleanTotalData(rawTotalData) {
@@ -67,6 +94,11 @@ export class StateComponent implements OnInit {
     const layout = {
       barmode: 'stack',
       title: `Renewable Energy Production vs. Traditional Energy Sources - ${this.name}`,
+      titlefont: {
+        size: 20,
+        color: "#777",
+        weight: 500
+      },
       yaxis: {
         title: this.units
       }

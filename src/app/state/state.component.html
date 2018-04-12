@@ -1,5 +1,12 @@
-<div class="state-flag">
-  <img src="/assets/stateFlags/Flag_of_{{nameForFile}}.svg" />
+<div class="state-header">
+  <img class="state-flag" src="/assets/stateFlags/Flag_of_{{ nameForFile }}.svg" />
+  <h1>{{ name }}</h1>
+</div>
+<div class="state-meta-data">
+  <h3>Total Renewable Energy Production Rank: {{ rankRaw }}&#42;</h3>
+  <h3>{{ renewablePercent }}% of {{ name }}'s energy production is renewable.</h3>
+  <h3>Percentage rank: {{ percentageRank }}&#42;</h3>
+  <h6>&#42; out of 51 (Includes Washington DC)</h6>
 </div>
 
 <div class="simple-chart" #simplechart>

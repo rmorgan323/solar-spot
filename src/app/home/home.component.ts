@@ -16,10 +16,10 @@ export class HomeComponent implements OnInit {
 
   stateLink(state) {
     this.router.navigate([`state/${state}`]);
+    document.querySelector(`.t-${state}`).style.opacity = "1";
   }
 
   stateDisplay(state) {
-    document.querySelector(`.t-${state}`).style.opacity = "1";
     document.getElementById(state).style.fill = "#ffca3f";
   }
 
@@ -30,7 +30,7 @@ export class HomeComponent implements OnInit {
 
   getStateFill(state) {
     for (let i = 0; i < colors.length; i++) {
-      if (stateData[state] <= colors[i].range) {
+      if (stateData[state].currentRenewable <= colors[i].range) {
         return colors[i].hex;
       }
     }    
