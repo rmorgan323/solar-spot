@@ -16,11 +16,12 @@ export class HomeComponent implements OnInit {
 
   stateLink(state) {
     this.router.navigate([`state/${state}`]);
-    document.querySelector(`.t-${state}`).style.opacity = "1";
   }
 
   stateDisplay(state) {
-    document.getElementById(state).style.fill = "#ffca3f";
+    document.getElementById(state).style.fill = stateData[state].primary[0];
+    document.querySelector(`.t-${state}`).style.fill = stateData[state].primary[1];
+    document.querySelector(`.t-${state}`).style.opacity = "1";
   }
 
   stateRemoveDisplay(state) {

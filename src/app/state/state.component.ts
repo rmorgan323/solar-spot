@@ -3,6 +3,8 @@ import { ActivatedRoute } from '@angular/router';
 import apiKey from '../../apiKey';
 import * as Plotly from 'plotly.js';
 import stateData from '../home/home.component.data';
+import getColors from 'get-image-colors';
+import path from 'path';
 
 @Component({
   selector: 'app-state',
@@ -23,8 +25,13 @@ export class StateComponent implements OnInit {
   rankRaw: number;
   renewablePercent: string;
   percentageRank: string;
+  stateColor: array;
 
   constructor(private route: ActivatedRoute) { 
+  }
+
+  getStateColor() {
+    return { 'color': this.stateColor[0] };
   }
 
   async ngOnInit() {
@@ -56,6 +63,7 @@ export class StateComponent implements OnInit {
     const percent = this.getRenewablePercent(this.state);
     this.renewablePercent = percent.toFixed(2);
     this.percentageRank = this.getPercentageRank(this.state);
+    this.stateColor = stateData.stateData[this.state].primary;
   }
 
   getRenewablePercent(state) {
@@ -89,7 +97,8 @@ export class StateComponent implements OnInit {
       y: this.renewableData.map(year => year[1]).reverse(),
       type: 'bar',
       name: 'Renewable',
-      marker: { color: '#6ea363' }
+      marker: { color: this.stateColor[1] }
+      // marker: { color: '#6ea363' }
     }];
     const layout = {
       barmode: 'stack',
@@ -120,7 +129,8 @@ export class StateComponent implements OnInit {
       y: yAxis.map((year, index) => year - renew[index]),
       type: 'bar',
       name: 'Traditional',
-      marker: { color: '#ffca3f' }
+      marker: { color: this.stateColor[0] }
+      // marker: { color: '#ffca3f' }
     }];
 
     Plotly.plot(element, data);
