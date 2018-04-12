@@ -37,8 +37,8 @@ export const stateData = {
   ME: { primary: ['#002664', '#93CAEE'], currentRenewable: 141746, currentTotal: 141746, rankRaw: 25 },
   VA: { primary: ['#00247C', '#B11001'], currentRenewable: 134751, currentTotal: 928320, rankRaw: 26 },
   AZ: { primary: ['#C0032C', '#FED800'], currentRenewable: 127574, currentTotal: 614488, rankRaw: 27 },
-  LA: { primary: ['#00427C', '#E5E8EA'], currentRenewable: 126704, currentTotal: 2583797, rankRaw: 28 },
-  SC: { primary: ['#003066', '#E2E8ED'], currentRenewable: 120278, currentTotal: 676187, rankRaw: 29 },
+  LA: { primary: ['#00427C', '#8D7344'], currentRenewable: 126704, currentTotal: 2583797, rankRaw: 28 },
+  SC: { primary: ['#E2E8ED', '#003066'], currentRenewable: 120278, currentTotal: 676187, rankRaw: 29 },
   CO: { primary: ['#C0032C', '#FFD800'], currentRenewable: 119933, currentTotal: 3233349, rankRaw: 30 },
   MT: { primary: ['#002587', '#FFDB0B'], currentRenewable: 115481, currentTotal: 1086952, rankRaw: 31 },
   AR: { primary: ['#C0032C', '#002368'], currentRenewable: 109314, currentTotal: 614488, rankRaw: 32 },
@@ -59,8 +59,8 @@ export const stateData = {
   UT: { primary: ['#002368', '#F5BE6C'], currentRenewable: 21390, currentTotal: 1026696, rankRaw: 47 },
   AK: { primary: ['#061A4A', '#FFB70A'], currentRenewable: 19182, currentTotal: 1425096, rankRaw: 48 },
   RI: { primary: ['#FEC600', '#002E72'], currentRenewable: 4098, currentTotal: 4098, rankRaw: 49 },
-  DE: { primary: ['#77A2A1', '#F0DD83'], currentRenewable: 3821, currentTotal: 3821, rankRaw: 50 },
-  DC: { primary: ['#E91436', '#F9BFC7'], currentRenewable: 849, currentTotal: 849, rankRaw: 51 }
+  DE: { primary: ['#F0DD83', '#77A2A1'], currentRenewable: 3821, currentTotal: 3821, rankRaw: 50 },
+  DC: { primary: ['#F9BFC7', '#E91436'], currentRenewable: 849, currentTotal: 849, rankRaw: 51 }
 };
 
 export default { colors, stateData };

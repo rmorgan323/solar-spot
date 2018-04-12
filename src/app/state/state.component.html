@@ -1,6 +1,6 @@
 <div class="state-header">
   <img class="state-flag" src="/assets/stateFlags/Flag_of_{{ nameForFile }}.svg" />
-  <h1>{{ name }}</h1>
+  <h1 [ngStyle]="getStateColor()">{{ name }}</h1>
 </div>
 <div class="state-meta-data">
   <h3>Total Renewable Energy Production Rank: {{ rankRaw }}&#42;</h3>

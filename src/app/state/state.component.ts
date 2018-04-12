@@ -30,6 +30,10 @@ export class StateComponent implements OnInit {
   constructor(private route: ActivatedRoute) { 
   }
 
+  getStateColor() {
+    return { 'color': this.stateColor[0] };
+  }
+
   async ngOnInit() {
     await this.getRenewableData();
     await this.getTotalData();
