@@ -9,6 +9,10 @@ import { colors, stateData } from './home.component.data';
 })
 export class HomeComponent implements OnInit {
 
+  currentState: string;
+  stateRank: string;
+  stateRankYVal: string;
+
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
@@ -22,11 +26,23 @@ export class HomeComponent implements OnInit {
     document.getElementById(state).style.fill = stateData[state].primary[0];
     document.querySelector(`.t-${state}`).style.fill = stateData[state].primary[1];
     document.querySelector(`.t-${state}`).style.opacity = "1";
+    document.querySelector(`.k-${state}`).style.opacity = "1";
+    this.currentState = state;
+    this.stateRank = stateData[state].rankRaw;
+    this.stateRankYVal = this.getStateRank(state);
+  }
+
+  getStateRank(state) {
+    return 351 + stateData[state].rankRaw * 6;
   }
 
   stateRemoveDisplay(state) {
     document.querySelector(`.t-${state}`).style.opacity = "0";
+    document.querySelector(`.k-${state}`).style.opacity = "0";
     document.getElementById(state).style.fill = this.getStateFill(state);
+    this.currentState: '';
+    this.stateRank = '';
+    this.stateRankYVal = '';
   }
 
   getStateFill(state) {
@@ -35,6 +51,10 @@ export class HomeComponent implements OnInit {
         return colors[i].hex;
       }
     }    
+  }
+
+  getStateColor() {
+    return { 'fill': stateData[this.currentState].primary[0] };
   }
 
 }

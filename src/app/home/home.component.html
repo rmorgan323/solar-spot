@@ -106,19 +106,73 @@
     <text class="t-VA" x="941" y="390" (click)="stateLink('VA')" (mouseover)="stateDisplay('VA')" (mouseout)="stateRemoveDisplay('VA')">Virginia</text>
     <text class="t-DC" x="986" y="357" (click)="stateLink('DC')" (mouseover)="stateDisplay('DC')" (mouseout)="stateRemoveDisplay('DC')">Washington D.C.</text>
   </g>
-    <defs>
-      <linearGradient id="keyGradient" x1="0" x2="0" y1="0" y2="1">
-        <stop offset="0%" stop-color="#2f5c2d" />
-        <stop offset="100%" stop-color="#d3e9ce" />
-      </linearGradient>
-    </defs>
-    <rect x="1060" y="382" width="60" height="300" fill="url(#keyGradient)" />
-    <rect x="1060" y="377" width="60" height="5" fill="#bbb" />
-    <rect x="1060" y="682" width="60" height="5" fill="#ccc" />
-    <text class="key-text" x="1069" y="400">MORE</text>
-    <text class="key-text" x="1072" y="675">LESS</text>
-    <text class="title-text" x="515" y="120">Renewable Energy Production by U.S. State</text>
+  <defs>
+    <linearGradient id="keyGradient" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#2f5c2d" />
+      <stop offset="100%" stop-color="#d3e9ce" />
+    </linearGradient>
+  </defs>
+  <rect x="1060" y="350" width="60" height="306" fill="url(#keyGradient)" />
+  <rect x="1060" y="348" width="60" height="2" fill="#ddd" />
+  <rect x="1060" y="656" width="60" height="2" fill="#ddd" />
+  <text class="key-text" x="1069" y="341">MORE</text>
+  <text class="key-text" x="1072" y="675">LESS</text>
+  <text class="title-text" x="515" y="120">Renewable Energy Production by U.S. State</text>
 
+
+  <rect class="key-rect k-WA" x="1060" y="350" width="60" height="6" [ngStyle]="getStateColor('WA')" (click)="stateLink('WA')" (mouseover)="stateDisplay('WA')" (mouseout)="stateRemoveDisplay('WA')">Washington</rect>
+  <rect class="key-rect k-CA" x="1060" y="356" width="60" height="6" [ngStyle]="getStateColor('CA')" (click)="stateLink('CA')" (mouseover)="stateDisplay('CA')" (mouseout)="stateRemoveDisplay('CA')">California</rect>
+  <rect class="key-rect k-IA" x="1060" y="362" width="60" height="6" [ngStyle]="getStateColor('IA')" (click)="stateLink('IA')" (mouseover)="stateDisplay('IA')" (mouseout)="stateRemoveDisplay('IA')">Washington</rect>
+  <rect class="key-rect k-TX" x="1060" y="368" width="60" height="6" [ngStyle]="getStateColor('TX')" (click)="stateLink('TX')" (mouseover)="stateDisplay('TX')" (mouseout)="stateRemoveDisplay('TX')">Washington</rect>
+  <rect class="key-rect k-OR" x="1060" y="374" width="60" height="6" [ngStyle]="getStateColor('OR')" (click)="stateLink('OR')" (mouseover)="stateDisplay('OR')" (mouseout)="stateRemoveDisplay('OR')">Washington</rect>
+  <rect class="key-rect k-NY" x="1060" y="380" width="60" height="6" [ngStyle]="getStateColor('NY')" (click)="stateLink('NY')" (mouseover)="stateDisplay('NY')" (mouseout)="stateRemoveDisplay('NY')">Washington</rect>
+  <rect class="key-rect k-IL" x="1060" y="386" width="60" height="6" [ngStyle]="getStateColor('IL')" (click)="stateLink('IL')" (mouseover)="stateDisplay('IL')" (mouseout)="stateRemoveDisplay('IL')">Washington</rect>
+  <rect class="key-rect k-MN" x="1060" y="392" width="60" height="6" [ngStyle]="getStateColor('MN')" (click)="stateLink('MN')" (mouseover)="stateDisplay('MN')" (mouseout)="stateRemoveDisplay('MN')">Washington</rect>
+  <rect class="key-rect k-NE" x="1060" y="398" width="60" height="6" [ngStyle]="getStateColor('NE')" (click)="stateLink('NE')" (mouseover)="stateDisplay('NE')" (mouseout)="stateRemoveDisplay('NE')">Washington</rect>
+  <rect class="key-rect k-GA" x="1060" y="404" width="60" height="6" [ngStyle]="getStateColor('GA')" (click)="stateLink('GA')" (mouseover)="stateDisplay('GA')" (mouseout)="stateRemoveDisplay('GA')">Washington</rect>
+  <rect class="key-rect k-AL" x="1060" y="410" width="60" height="6" [ngStyle]="getStateColor('AL')" (click)="stateLink('AL')" (mouseover)="stateDisplay('AL')" (mouseout)="stateRemoveDisplay('AL')">Washington</rect>
+  <rect class="key-rect k-IN" x="1060" y="416" width="60" height="6" [ngStyle]="getStateColor('IN')" (click)="stateLink('IN')" (mouseover)="stateDisplay('IN')" (mouseout)="stateRemoveDisplay('IN')">Washington</rect>
+  <rect class="key-rect k-FL" x="1060" y="422" width="60" height="6" [ngStyle]="getStateColor('FL')" (click)="stateLink('FL')" (mouseover)="stateDisplay('FL')" (mouseout)="stateRemoveDisplay('FL')">Washington</rect>
+  <rect class="key-rect k-SD" x="1060" y="428" width="60" height="6" [ngStyle]="getStateColor('SD')" (click)="stateLink('SD')" (mouseover)="stateDisplay('SD')" (mouseout)="stateRemoveDisplay('SD')">Washington</rect>
+  <rect class="key-rect k-WI" x="1060" y="434" width="60" height="6" [ngStyle]="getStateColor('WI')" (click)="stateLink('WI')" (mouseover)="stateDisplay('WI')" (mouseout)="stateRemoveDisplay('WI')">Washington</rect>
+  <rect class="key-rect k-MI" x="1060" y="440" width="60" height="6" [ngStyle]="getStateColor('MI')" (click)="stateLink('MI')" (mouseover)="stateDisplay('MI')" (mouseout)="stateRemoveDisplay('MI')">Washington</rect>
+  <rect class="key-rect k-TN" x="1060" y="446" width="60" height="6" [ngStyle]="getStateColor('TN')" (click)="stateLink('TN')" (mouseover)="stateDisplay('TN')" (mouseout)="stateRemoveDisplay('TN')">Washington</rect>
+  <rect class="key-rect k-OK" x="1060" y="452" width="60" height="6" [ngStyle]="getStateColor('OK')" (click)="stateLink('OK')" (mouseover)="stateDisplay('OK')" (mouseout)="stateRemoveDisplay('OK')">Washington</rect>
+  <rect class="key-rect k-KS" x="1060" y="458" width="60" height="6" [ngStyle]="getStateColor('KS')" (click)="stateLink('KS')" (mouseover)="stateDisplay('KS')" (mouseout)="stateRemoveDisplay('KS')">Washington</rect>
+  <rect class="key-rect k-PA" x="1060" y="464" width="60" height="6" [ngStyle]="getStateColor('PA')" (click)="stateLink('PA')" (mouseover)="stateDisplay('PA')" (mouseout)="stateRemoveDisplay('PA')">Washington</rect>
+  <rect class="key-rect k-NC" x="1060" y="470" width="60" height="6" [ngStyle]="getStateColor('NC')" (click)="stateLink('NC')" (mouseover)="stateDisplay('NC')" (mouseout)="stateRemoveDisplay('NC')">Washington</rect>
+  <rect class="key-rect k-OH" x="1060" y="476" width="60" height="6" [ngStyle]="getStateColor('OH')" (click)="stateLink('OH')" (mouseover)="stateDisplay('OH')" (mouseout)="stateRemoveDisplay('OH')">Washington</rect>
+  <rect class="key-rect k-ND" x="1060" y="482" width="60" height="6" [ngStyle]="getStateColor('ND')" (click)="stateLink('ND')" (mouseover)="stateDisplay('ND')" (mouseout)="stateRemoveDisplay('ND')">Washington</rect>
+  <rect class="key-rect k-ID" x="1060" y="488" width="60" height="6" [ngStyle]="getStateColor('ID')" (click)="stateLink('ID')" (mouseover)="stateDisplay('ID')" (mouseout)="stateRemoveDisplay('ID')">Washington</rect>
+  <rect class="key-rect k-ME" x="1060" y="494" width="60" height="6" [ngStyle]="getStateColor('ME')" (click)="stateLink('ME')" (mouseover)="stateDisplay('ME')" (mouseout)="stateRemoveDisplay('ME')">Washington</rect>
+  <rect class="key-rect k-VA" x="1060" y="500" width="60" height="6" [ngStyle]="getStateColor('VA')" (click)="stateLink('VA')" (mouseover)="stateDisplay('VA')" (mouseout)="stateRemoveDisplay('VA')">Washington</rect>
+  <rect class="key-rect k-AZ" x="1060" y="506" width="60" height="6" [ngStyle]="getStateColor('AZ')" (click)="stateLink('AZ')" (mouseover)="stateDisplay('AZ')" (mouseout)="stateRemoveDisplay('AZ')">Washington</rect>
+  <rect class="key-rect k-LA" x="1060" y="512" width="60" height="6" [ngStyle]="getStateColor('LA')" (click)="stateLink('LA')" (mouseover)="stateDisplay('LA')" (mouseout)="stateRemoveDisplay('LA')">Washington</rect>
+  <rect class="key-rect k-SC" x="1060" y="518" width="60" height="6" [ngStyle]="getStateColor('SC')" (click)="stateLink('SC')" (mouseover)="stateDisplay('SC')" (mouseout)="stateRemoveDisplay('SC')">Washington</rect>
+  <rect class="key-rect k-CO" x="1060" y="524" width="60" height="6" [ngStyle]="getStateColor('CO')" (click)="stateLink('CO')" (mouseover)="stateDisplay('CO')" (mouseout)="stateRemoveDisplay('CO')">Washington</rect>
+  <rect class="key-rect k-MT" x="1060" y="530" width="60" height="6" [ngStyle]="getStateColor('MT')" (click)="stateLink('MT')" (mouseover)="stateDisplay('MT')" (mouseout)="stateRemoveDisplay('MT')">Washington</rect>
+  <rect class="key-rect k-AR" x="1060" y="536" width="60" height="6" [ngStyle]="getStateColor('AR')" (click)="stateLink('AR')" (mouseover)="stateDisplay('AR')" (mouseout)="stateRemoveDisplay('AR')">Washington</rect>
+  <rect class="key-rect k-MO" x="1060" y="542" width="60" height="6" [ngStyle]="getStateColor('MO')" (click)="stateLink('MO')" (mouseover)="stateDisplay('MO')" (mouseout)="stateRemoveDisplay('MO')">Washington</rect>
+  <rect class="key-rect k-NV" x="1060" y="548" width="60" height="6" [ngStyle]="getStateColor('NV')" (click)="stateLink('NV')" (mouseover)="stateDisplay('NV')" (mouseout)="stateRemoveDisplay('NV')">Washington</rect>
+  <rect class="key-rect k-KY" x="1060" y="554" width="60" height="6" [ngStyle]="getStateColor('KY')" (click)="stateLink('KY')" (mouseover)="stateDisplay('KY')" (mouseout)="stateRemoveDisplay('KY')">Washington</rect>
+  <rect class="key-rect k-MS" x="1060" y="560" width="60" height="6" [ngStyle]="getStateColor('MS')" (click)="stateLink('MS')" (mouseover)="stateDisplay('MS')" (mouseout)="stateRemoveDisplay('MS')">Washington</rect>
+  <rect class="key-rect k-MA" x="1060" y="566" width="60" height="6" [ngStyle]="getStateColor('MA')" (click)="stateLink('MA')" (mouseover)="stateDisplay('MA')" (mouseout)="stateRemoveDisplay('MA')">Washington</rect>
+  <rect class="key-rect k-NH" x="1060" y="572" width="60" height="6" [ngStyle]="getStateColor('NH')" (click)="stateLink('NH')" (mouseover)="stateDisplay('NH')" (mouseout)="stateRemoveDisplay('NH')">Washington</rect>
+  <rect class="key-rect k-MD" x="1060" y="578" width="60" height="6" [ngStyle]="getStateColor('MD')" (click)="stateLink('MD')" (mouseover)="stateDisplay('MD')" (mouseout)="stateRemoveDisplay('MD')">Washington</rect>
+  <rect class="key-rect k-NJ" x="1060" y="584" width="60" height="6" [ngStyle]="getStateColor('NJ')" (click)="stateLink('NJ')" (mouseover)="stateDisplay('NJ')" (mouseout)="stateRemoveDisplay('NJ')">Washington</rect>
+  <rect class="key-rect k-WY" x="1060" y="590" width="60" height="6" [ngStyle]="getStateColor('WY')" (click)="stateLink('WY')" (mouseover)="stateDisplay('WY')" (mouseout)="stateRemoveDisplay('WY')">Washington</rect>
+  <rect class="key-rect k-WV" x="1060" y="596" width="60" height="6" [ngStyle]="getStateColor('WV')" (click)="stateLink('WV')" (mouseover)="stateDisplay('WV')" (mouseout)="stateRemoveDisplay('WV')">Washington</rect>
+  <rect class="key-rect k-NM" x="1060" y="602" width="60" height="6" [ngStyle]="getStateColor('NM')" (click)="stateLink('NM')" (mouseover)="stateDisplay('NM')" (mouseout)="stateRemoveDisplay('NM')">Washington</rect>
+  <rect class="key-rect k-VT" x="1060" y="608" width="60" height="6" [ngStyle]="getStateColor('VT')" (click)="stateLink('VT')" (mouseover)="stateDisplay('VT')" (mouseout)="stateRemoveDisplay('VT')">Washington</rect>
+  <rect class="key-rect k-CT" x="1060" y="614" width="60" height="6" [ngStyle]="getStateColor('CT')" (click)="stateLink('CT')" (mouseover)="stateDisplay('CT')" (mouseout)="stateRemoveDisplay('CT')">Washington</rect>
+  <rect class="key-rect k-HI" x="1060" y="620" width="60" height="6" [ngStyle]="getStateColor('HI')" (click)="stateLink('HI')" (mouseover)="stateDisplay('HI')" (mouseout)="stateRemoveDisplay('HI')">Washington</rect>
+  <rect class="key-rect k-UT" x="1060" y="626" width="60" height="6" [ngStyle]="getStateColor('UT')" (click)="stateLink('UT')" (mouseover)="stateDisplay('UT')" (mouseout)="stateRemoveDisplay('UT')">Washington</rect>
+  <rect class="key-rect k-AK" x="1060" y="632" width="60" height="6" [ngStyle]="getStateColor('AK')" (click)="stateLink('AK')" (mouseover)="stateDisplay('AK')" (mouseout)="stateRemoveDisplay('AK')">Washington</rect>
+  <rect class="key-rect k-RI" x="1060" y="638" width="60" height="6" [ngStyle]="getStateColor('RI')" (click)="stateLink('RI')" (mouseover)="stateDisplay('RI')" (mouseout)="stateRemoveDisplay('RI')">Washington</rect>
+  <rect class="key-rect k-DE" x="1060" y="644" width="60" height="6" [ngStyle]="getStateColor('DE')" (click)="stateLink('DE')" (mouseover)="stateDisplay('DE')" (mouseout)="stateRemoveDisplay('DE')">Washington</rect>
+  <rect class="key-rect k-DC" x="1060" y="650" width="60" height="6" [ngStyle]="getStateColor('DC')" (click)="stateLink('DC')" (mouseover)="stateDisplay('DC')" (mouseout)="stateRemoveDisplay('DC')">Washington</rect>
+  
+  <text class="key-rank" x="1033" [ngStyle]="getStateColor('DC')" [attr.y]="stateRankYVal">#{{ stateRank }}</text>
 </svg>
 
 

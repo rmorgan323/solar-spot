@@ -1,3 +1,9 @@
+.state-component {
+  background-image: url('/assets/windmills2.jpg');
+  height: calc(100vh - 40px);
+  background-size: cover;
+}
+
 .simple-chart {
   width: 959px;
   display: block;
@@ -8,7 +14,8 @@
   display: flex;
   width: 959px;
   align-items: center;
-  margin: 29px auto 13px;
+  margin: 0 auto 13px;
+  padding-top: 29px;
 }
 
 .state-flag {

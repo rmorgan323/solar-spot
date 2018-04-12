@@ -27,14 +27,14 @@ text {
   cursor: pointer;
   opacity: 0;
   /*fill: #888;*/
-  transition: opacity .3s ease-in-out;
+  transition: opacity .1s ease-in-out;
 }
 
 .key-text {
   opacity: 1;
   font-weight: 500;
   font-size: 14px;
-  fill: #fff;
+  fill: #ddd;
 }
 
 .title-text {
@@ -44,8 +44,17 @@ text {
   fill: #2f5c2d;
 }
 
-.someClass {
-  fill: red;
+.key-rect {
+  opacity: 0;
+  cursor: pointer;
+  transition: opacity .1s ease-in-out;
+}
+
+.key-rank {
+  opacity: 1;
+  fill: #888;
+  font-weight: 900;
+  font-size: 14px;
 }
 
 @media screen and (max-width: 959px) {

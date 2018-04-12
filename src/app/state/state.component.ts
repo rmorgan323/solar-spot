@@ -34,6 +34,10 @@ export class StateComponent implements OnInit {
     return { 'color': this.stateColor[0] };
   }
 
+  getBorderColor() {
+    return { 'borderBottom': `5px solid ${this.stateColor[0]}`}
+  }
+
   async ngOnInit() {
     await this.getRenewableData();
     await this.getTotalData();
@@ -110,7 +114,9 @@ export class StateComponent implements OnInit {
       },
       yaxis: {
         title: this.units
-      }
+      },
+      paper_bgcolor: 'rgba(0,0,0,0)',
+      plot_bgcolor: 'rgba(0,0,0,0)'
     };
     const style = {
       margin: { t: 0 }
