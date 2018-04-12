@@ -22,6 +22,7 @@ export class StateComponent implements OnInit {
   source: string;
   rankRaw: number;
   renewablePercent: string;
+  percentageRank: string;
 
   constructor(private route: ActivatedRoute) { 
   }
@@ -53,11 +54,29 @@ export class StateComponent implements OnInit {
     this.source = rawRenewableData.series[0].source;
     this.rankRaw = stateData.stateData[this.state].rankRaw;
     this.renewablePercent = this.getRenewablePercent(this.state);
-    console.log(this.renewablePercent)
+    this.percentageRank = this.getPercentageRank(this.state);
   }
 
   getRenewablePercent(state) {
-    return ((stateData.stateData[state].currentRenewable / stateData.stateData[state].currentTotal) * 100).toFixed(2).toString() + '%';
+    return ((stateData.stateData[state].currentRenewable / stateData.stateData[state].currentTotal) * 100);
+  }
+
+  getPercentageRank(state) {
+    let percentages = Object.keys(stateData.stateData).reduce((array, key) => {
+      array.push({
+        state: key,
+        renewablePercent: this.getRenewablePercent(key)
+      })
+      return array;
+    }, []);
+
+    percentages = percentages.sort((a, b) => {
+      return b.renewablePercent - a.renewablePercent;
+    })
+
+    const rank = percentages.findIndex(abbr => abbr.state === state);
+    if (percentages[rank] === 100) return 1;
+    return rank + 1;
   }
 
   cleanTotalData(rawTotalData) {

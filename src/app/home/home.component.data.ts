@@ -5,9 +5,9 @@ export const colors = [
   { hex: '#6ea363', range: 250000 },
   { hex: '#497d3d', range: 500000 },
   { hex: '#2f5c2d', range: 5000000000 }
-]
+];
 
-export const range = [0, 30000, 60000,120000, 250000, 500000]
+export const range = [0, 30000, 60000,120000, 250000, 500000];
 
 export const stateData = {
   WA: { currentRenewable: 849400, currentTotal: 934746, rankRaw: 1 },
@@ -61,8 +61,6 @@ export const stateData = {
   RI: { currentRenewable: 4098, currentTotal: 4098, rankRaw: 49 },
   DE: { currentRenewable: 3821, currentTotal: 3821, rankRaw: 50 },
   DC: { currentRenewable: 849, currentTotal: 849, rankRaw: 51 }
-}
-
-
+};
 
 export default { colors, stateData };
