@@ -53,12 +53,13 @@ export class StateComponent implements OnInit {
     this.units = rawRenewableData.series[0].units;
     this.source = rawRenewableData.series[0].source;
     this.rankRaw = stateData.stateData[this.state].rankRaw;
-    this.renewablePercent = this.getRenewablePercent(this.state);
+    const percent = this.getRenewablePercent(this.state);
+    this.renewablePercent = percent.toFixed(2);
     this.percentageRank = this.getPercentageRank(this.state);
   }
 
   getRenewablePercent(state) {
-    return ((stateData.stateData[state].currentRenewable / stateData.stateData[state].currentTotal) * 100);
+    return (stateData.stateData[state].currentRenewable / stateData.stateData[state].currentTotal) * 100;
   }
 
   getPercentageRank(state) {
@@ -69,14 +70,12 @@ export class StateComponent implements OnInit {
       })
       return array;
     }, []);
-
     percentages = percentages.sort((a, b) => {
       return b.renewablePercent - a.renewablePercent;
     })
-
     const rank = percentages.findIndex(abbr => abbr.state === state);
-    if (percentages[rank] === 100) return 1;
-    return rank + 1;
+      
+    return percentages[rank].renewablePercent === 100 ? 1 : rank + 1;
   }
 
   cleanTotalData(rawTotalData) {
@@ -95,6 +94,11 @@ export class StateComponent implements OnInit {
     const layout = {
       barmode: 'stack',
       title: `Renewable Energy Production vs. Traditional Energy Sources - ${this.name}`,
+      titlefont: {
+        size: 20,
+        color: "#777",
+        weight: 500
+      },
       yaxis: {
         title: this.units
       }
